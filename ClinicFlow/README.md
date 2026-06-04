@@ -245,7 +245,7 @@ git commit -m "feat: cria backend express com rotas de consultas"
 git add .
 git commit -m "feat: adiciona banco postgres com script inicial"
 
-git add .
+git add . 
 git commit -m "feat: cria frontend react com dashboard hospitalar"
 
 git add .
