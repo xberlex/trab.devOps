@@ -233,6 +233,36 @@ Esses erros ajudam a demonstrar diagnostico, logs, resiliencia e validacao duran
 11. Criacao do workflow GitHub Actions.
 12. Validacao com `npm test` e `npm run build`.
 
+## Commits sugeridos
+
+Use estes commits para organizar a entrega:
+
+```bash
+git add .
+git commit -m "chore: estrutura inicial do ClinicFlow"
+
+git add .
+git commit -m "feat: cria backend express com rotas de consultas"
+
+git add .
+git commit -m "feat: adiciona banco postgres com script inicial"
+
+git add . 
+git commit -m "feat: cria frontend react com dashboard hospitalar"
+
+git add .
+git commit -m "feat: adiciona login e botoes funcionais"
+
+git add .
+git commit -m "chore: integra docker compose e github actions"
+
+git add .
+git commit -m "test: adiciona testes automatizados da api"
+
+git add .
+git commit -m "docs: documenta execucao problemas e correcoes"
+```
+
 ## Comandos uteis para apresentacao
 
 ```bash
