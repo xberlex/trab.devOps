@@ -46,11 +46,16 @@ clinicflow/
 - Botao Sair funcional, limpando a sessao local.
 - Dashboard com total de consultas, consultas agendadas, confirmadas e medicos ativos.
 - Cadastro visual de nova consulta.
+- Campo de paciente em nova consulta digitavel por nome, sem seletor antigo.
+- Validacao de data futura e bloqueio de conflito de horario para o mesmo medico.
 - Listagem de consultas marcadas.
+- Botoes de status para confirmar, concluir e cancelar consulta.
 - Botao para excluir/cancelar consulta marcada.
-- Listagem de medicos.
+- CRUD de medicos: cadastrar, editar e desativar.
 - Listagem de pacientes.
 - Cadastro de pacientes com persistencia no PostgreSQL.
+- Edicao de pacientes cadastrados usando a mesma pagina de cadastro.
+- Tela dedicada para cadastro/edicao de paciente, no mesmo estilo visual do login.
 - Painel DevOps Lab para forcar erros e testar diagnostico.
 
 ## Regra de acesso
@@ -145,10 +150,19 @@ npm test
 Testes implementados:
 
 - `GET /health`
+- `POST /login`
 - `GET /consultas`
 - `POST /pacientes`
-- `POST /login`
+- `PUT /pacientes/:id`
+- `POST /medicos`
+- `PUT /medicos/:id`
+- `DELETE /medicos/:id`
+- `POST /consultas` com validacao de data futura
+- `POST /consultas` com bloqueio de conflito de horario
+- `PUT /consultas/:id` para atualizar status
 - `GET /devops/forcar-erro`
+
+Ultima validacao local: 11 testes automatizados passaram com `npm test` no backend.
 
 ## Dockerfiles obrigatorios
 
@@ -209,7 +223,12 @@ Esses erros ajudam a demonstrar diagnostico, logs, resiliencia e validacao duran
 - Nome do usuario ausente no menu: agora o sistema gera o nome a partir do e-mail de acesso.
 - Botao Sair sem acao: agora remove a sessao e volta ao login.
 - Botao Excluir sem confirmacao: agora confirma, chama a API e remove da tela.
+- Consultas sem fluxo de status: agora possuem acoes de confirmar, concluir e cancelar.
+- Agendamento permitia dados inconsistentes: agora valida data futura e conflito de horario por medico.
 - Pacientes apenas listados: agora podem ser cadastrados pelo frontend e salvos no banco.
+- Botao de cadastro de paciente parecia abrir a mesma pagina: agora abre uma tela dedicada com visual parecido com o login.
+- Pacientes cadastrados nao podiam ser editados: agora cada card possui botao Editar, abrindo a tela dedicada com os dados preenchidos.
+- Nova consulta ainda usava seletor/lista de paciente: agora o paciente e digitado por nome em um campo de texto puro.
 - Falta de banco: criado `database/init.sql`.
 - Falta de Docker integrado: criado `docker-compose.yml` com frontend, backend e PostgreSQL.
 - Falta de CI/CD: criado workflow GitHub Actions com testes, builds e validacao Docker.
@@ -230,6 +249,12 @@ Esses erros ajudam a demonstrar diagnostico, logs, resiliencia e validacao duran
 10. Criacao dos testes com Jest e Supertest.
 11. Criacao do workflow GitHub Actions.
 12. Validacao com `npm test` e `npm run build`.
+13. Implementacao do CRUD de medicos.
+14. Melhoria do agendamento com paciente digitado, validacao de data e conflito de horario.
+15. Implementacao de status das consultas: confirmar, concluir e cancelar.
+16. Criacao de pagina dedicada para cadastro de paciente.
+17. Implementacao da edicao de pacientes pela mesma pagina de cadastro.
+18. Refatoracao leve removendo imports e estilos nao utilizados.
 
 ## Commits sugeridos
 
@@ -259,7 +284,39 @@ git commit -m "test: adiciona testes automatizados da api"
 
 git add .
 git commit -m "docs: documenta execucao problemas e correcoes"
+
+git add .
+git commit -m "feat: aprimorar gestao de pacientes medicos e consultas"
+
+git add ClinicFlow/README.md
+git commit -m "docs: atualiza readme com melhorias finais"
 ```
+
+
+## Melhorias finais implementadas
+
+- Campo de paciente em nova consulta alterado para texto puro, removendo o seletor antigo.
+- Cadastro de paciente movido para uma tela dedicada no estilo do login.
+- Edicao de pacientes cadastrados pela mesma tela de cadastro, com formulario preenchido automaticamente.
+- CRUD de medicos implementado no frontend, backend e mock de testes.
+- Consultas agora possuem acoes de status: confirmar, concluir e cancelar.
+- Agendamento valida data futura e impede conflito de horario para o mesmo medico.
+- Refatoracao leve removendo imports e estilos que nao eram mais utilizados.
+
+Validacoes feitas apos as melhorias:
+
+```bash
+cd backend
+npm test
+npm run build
+
+cd ../frontend
+npm run build
+
+docker compose up -d --build
+```
+
+Resultado da validacao: backend com 11 testes passando, builds do backend/frontend sem erro e Docker Compose subindo com banco e backend saudaveis.
 
 ## Comandos uteis para apresentacao
 
@@ -290,9 +347,14 @@ Ao executar `docker compose up --build`, o sistema deve subir:
 - PostgreSQL persistente.
 - Login disponivel.
 - Consultas listadas.
+- Nova consulta com paciente digitado por nome.
+- Edicao de pacientes funcionando pela tela dedicada.
+- CRUD de medicos funcionando.
+- Atualizacao de status das consultas funcionando.
 - Exclusao de consultas funcionando.
 - Falhas controladas disponiveis no DevOps Lab.
 - Pipeline GitHub Actions pronto para validar testes, builds e Docker.
+
 
 
 
