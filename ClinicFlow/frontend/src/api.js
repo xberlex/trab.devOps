@@ -24,7 +24,7 @@ async function request(path, options = {}) {
 
   return response.json();
 }
-
+ 
 export const api = {
   login: (payload) => request("/login", { method: "POST", body: JSON.stringify(payload) }),
   health: () => request("/health"),
