@@ -52,20 +52,52 @@ module.exports = {
     pacientes.push(paciente);
     return paciente;
   },
+  atualizarPaciente: (id, payload) => {
+    const index = pacientes.findIndex((item) => item.id === Number(id));
+    if (index < 0) return null;
+    pacientes[index] = { ...pacientes[index], ...payload };
+    return pacientes[index];
+  },
+  criarMedico: (payload) => {
+    const medico = {
+      id: medicos.length ? Math.max(...medicos.map((item) => item.id)) + 1 : 1,
+      ativo: true,
+      ...payload 
+    };
+    medicos.push(medico);
+    return medico;
+  },
+  atualizarMedico: (id, payload) => {
+    const index = medicos.findIndex((item) => item.id === Number(id));
+    if (index < 0) return null;
+    medicos[index] = { ...medicos[index], ...payload };
+    return medicos[index];
+  },
   listarConsultas: () => consultas.map(withNames),
+  buscarConsulta: (id) => consultas.find((item) => item.id === Number(id)),
+  existeConflitoConsulta: (medicoId, dataHora, consultaId = null) => consultas.some((item) =>
+    item.medico_id === Number(medicoId) &&
+    new Date(item.data_hora).getTime() === new Date(dataHora).getTime() &&
+    ["agendada", "confirmada"].includes(item.status) &&
+    (!consultaId || item.id !== Number(consultaId))
+  ),
   criarConsulta: (payload) => {
     const consulta = {
       id: consultas.length ? Math.max(...consultas.map((item) => item.id)) + 1 : 1,
       status: "agendada",
       observacoes: "",
-      ...payload
+      ...payload,
+      paciente_id: Number(payload.paciente_id),
+      medico_id: Number(payload.medico_id)
     };
     consultas.push(consulta);
     return withNames(consulta);
   },
   atualizarConsulta: (id, payload) => {
-    consultas = consultas.map((item) => (item.id === Number(id) ? { ...item, ...payload } : item));
-    return withNames(consultas.find((item) => item.id === Number(id)));
+    const index = consultas.findIndex((item) => item.id === Number(id));
+    if (index < 0) return null;
+    consultas[index] = { ...consultas[index], ...payload };
+    return withNames(consultas[index]);
   },
   removerConsulta: (id) => {
     const antes = consultas.length;
@@ -73,6 +105,4 @@ module.exports = {
     return antes !== consultas.length;
   }
 };
-
-
 

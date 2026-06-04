@@ -1,4 +1,4 @@
-import { Activity, LockKeyhole, LogIn, ShieldCheck } from "lucide-react";
+﻿import { LockKeyhole, LogIn, ShieldCheck } from "lucide-react";
 import React, { useState } from "react";
 import { api } from "../api";
 
@@ -57,7 +57,7 @@ function Login({ onLogin }) {
         <div>
           <span className="eyebrow">Acesso administrativo</span>
           <h1>Entre para gerenciar consultas</h1>
-          <p>Controle pacientes, médicos, horarios e simulações DevOps em uma unica central.</p>
+          <p>Controle pacientes, mÃ©dicos, horarios e simulaÃ§Ãµes DevOps em uma unica central.</p>
         </div>
 
         <div className="login-proof">
@@ -103,3 +103,4 @@ function Login({ onLogin }) {
 }
 
 export default Login;
+

@@ -30,10 +30,15 @@ export const api = {
   health: () => request("/health"),
   listarConsultas: () => request("/consultas"),
   criarConsulta: (payload) => request("/consultas", { method: "POST", body: JSON.stringify(payload) }),
+  atualizarConsulta: (id, payload) => request(`/consultas/${id}`, { method: "PUT", body: JSON.stringify(payload) }),
   cancelarConsulta: (id) => request(`/consultas/${id}`, { method: "DELETE" }),
   listarMedicos: () => request("/medicos"),
+  criarMedico: (payload) => request("/medicos", { method: "POST", body: JSON.stringify(payload) }),
+  atualizarMedico: (id, payload) => request(`/medicos/${id}`, { method: "PUT", body: JSON.stringify(payload) }),
+  removerMedico: (id) => request(`/medicos/${id}`, { method: "DELETE" }),
   listarPacientes: () => request("/pacientes"),
   criarPaciente: (payload) => request("/pacientes", { method: "POST", body: JSON.stringify(payload) }),
+  atualizarPaciente: (id, payload) => request(`/pacientes/${id}`, { method: "PUT", body: JSON.stringify(payload) }),
   forcarErro: () => request("/devops/forcar-erro"),
   verificarBanco: () => request("/devops/banco")
 };

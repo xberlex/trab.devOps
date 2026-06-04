@@ -137,15 +137,6 @@ button:disabled {
   gap: 12px;
 }
 
-.brand-icon {
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 8px;
-  background: var(--primary);
-  color: #ffffff;
-}
 
 .brand strong,
 .operator-card strong {
@@ -594,27 +585,11 @@ textarea:focus {
   gap: 16px;
 }
 
-.patients-grid {
-  display: grid;
-  grid-template-columns: minmax(300px, 420px) 1fr;
-  gap: 20px;
-  align-items: start;
-}
-
-.patient-form {
-  display: grid;
-  gap: 14px;
-}
 
 .patient-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-@media (max-width: 1050px) {
-  .patients-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 @media (max-width: 680px) {
   .patient-list {
@@ -641,9 +616,6 @@ textarea:focus {
   background: rgba(255, 255, 255, 0.72);
 }
 
-.patient-form-page {
-  max-width: 920px;
-}
 
 .patient-fields-grid {
   display: grid;
@@ -665,3 +637,145 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 } 
+.status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.secondary-button.compact,
+.primary-button.compact {
+  min-height: 36px;
+  padding: 0 10px;
+  font-size: 0.86rem;
+}
+
+.doctor-management {
+  display: grid;
+  gap: 18px;
+}
+
+.doctor-form {
+  display: grid;
+  gap: 14px;
+}
+
+.doctor-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.badge.cancelada {
+  background: #fdeceb;
+  color: #b93931;
+}
+
+.badge.concluida {
+  background: #eef3f5;
+  color: #53656e;
+}
+
+.badge.agendada {
+  background: #fff3df;
+  color: #946019;
+}
+
+@media (max-width: 1050px) {
+  .doctor-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .status-actions,
+  .card-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .status-actions .secondary-button,
+  .card-actions .secondary-button,
+  .card-actions .primary-button {
+    width: 100%;
+  }
+
+  .doctor-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.patient-register-page {
+  grid-template-columns: minmax(320px, 0.95fr) minmax(340px, 640px);
+}
+
+.patient-register-hero {
+  align-content: center;
+}
+
+.patient-register-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 620px;
+}
+
+.patient-register-summary article {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 86px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow);
+}
+
+.patient-register-summary svg {
+  color: var(--primary);
+}
+
+.patient-register-summary strong,
+.patient-register-summary span {
+  display: block;
+}
+
+.patient-register-summary strong {
+  color: var(--ink);
+  font-size: 1.1rem;
+}
+
+.patient-register-summary span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.patient-register-card {
+  align-self: center;
+}
+
+.patient-register-actions {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.7fr) minmax(180px, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 1050px) {
+  .patient-register-page,
+  .patient-register-summary,
+  .patient-register-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
