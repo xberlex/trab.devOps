@@ -28,7 +28,7 @@ describe("ClinicFlow API", () => {
     expect(response.body).toHaveProperty("token");
     expect(response.body.usuario.email).toBe("marcos.silva@gmail.com");
     expect(response.body.usuario.nome).toBe("Marcos Silva");
-  });
+  }); 
 
   it("bloqueia login sem .com no e-mail", async () => {
     const response = await request(app)
