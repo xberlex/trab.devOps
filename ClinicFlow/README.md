@@ -258,14 +258,14 @@ Esses erros ajudam a demonstrar diagnostico, logs, resiliencia e validacao duran
 
 ## Commits sugeridos
 
-Use estes commits para organizar a entrega:
+commits para organizar a entrega:
 
 ```bash
 git add .
 git commit -m "chore: estrutura inicial do ClinicFlow"
 
 git add .
-git commit -m "feat: cria backend express com rotas de consultas"
+git commit -m "feat: cria backend express com rotas jde consultas"
 
 git add .
 git commit -m "feat: adiciona banco postgres com script inicial"
