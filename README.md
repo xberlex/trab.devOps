@@ -1,4 +1,6 @@
-﻿# ClinicFlow
+# trab.devOps
+
+# ClinicFlow
 
 Sistema full stack para atendimento hospitalar, com foco em marcacao de consultas medicas e pratica de DevOps com Docker Compose, PostgreSQL, testes automatizados e GitHub Actions.
 
@@ -265,7 +267,7 @@ git add .
 git commit -m "chore: estrutura inicial do ClinicFlow"
 
 git add .
-git commit -m "feat: cria backend express com rotas jde consultas"
+git commit -m "feat: cria backend express com rotas de consultas"
 
 git add .
 git commit -m "feat: adiciona banco postgres com script inicial"
@@ -294,7 +296,7 @@ git commit -m "docs: atualiza readme com melhorias finais"
 
 
 ## Melhorias finais implementadas
- 
+
 - Campo de paciente em nova consulta alterado para texto puro, removendo o seletor antigo.
 - Cadastro de paciente movido para uma tela dedicada no estilo do login.
 - Edicao de pacientes cadastrados pela mesma tela de cadastro, com formulario preenchido automaticamente.
@@ -354,7 +356,6 @@ Ao executar `docker compose up --build`, o sistema deve subir:
 - Exclusao de consultas funcionando.
 - Falhas controladas disponiveis no DevOps Lab.
 - Pipeline GitHub Actions pronto para validar testes, builds e Docker.
-
 
 
 
