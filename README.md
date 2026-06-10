@@ -260,7 +260,7 @@ Esses erros ajudam a demonstrar diagnostico, logs, resiliencia e validacao duran
 
 ## Commits sugeridos
 
-Use estes commits para organizar a entrega:
+commits para organizar a entrega:
 
 ```bash
 git add .
