@@ -57,7 +57,7 @@ function Login({ onLogin }) {
         <div>
           <span className="eyebrow">Acesso administrativo</span>
           <h1>Entre para gerenciar consultas</h1>
-          <p>Controle pacientes, mÃ©dicos, horarios e simulaÃ§Ãµes DevOps em uma unica central.</p>
+          <p>Controle pacientes, medicos, horarios e simulações DevOps em uma unica central.</p>
         </div>
 
         <div className="login-proof">
